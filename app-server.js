@@ -8,6 +8,8 @@ import hogan from 'hogan-express'
 // Routes
 import routes from './routes'
 
+const apiRoutes = require('./routes/api.js')
+
 // Express
 const app = express()
 app.engine('html', hogan)
@@ -15,6 +17,10 @@ app.set('views', __dirname + '/views')
 app.use('/', express.static(__dirname + '/public/'))
 app.set('port', (process.env.PORT || 3000))
 
+// Api Routes
+app.use('/api', apiRoutes)
+
+// React Routes
 app.get('*', (req, res) => {
 
     match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
