@@ -19,6 +19,10 @@
     "webpack": "^1.12.2"
   },
   "scripts": {
+    "server": "rm -rf public/index.html && NODE_ENV=production nodemon app.js",
+    "client": "cp views/index.html public/index.html && NODE_ENV=development webpack --hot --watch --source-map",
+
+
     "development": "cp views/index.html public/index.html && NODE_ENV=development webpack && webpack-dev-server --content-base public/ --hot --inline --devtool inline-source-map --history-api-fallback",
     "production": "rm -rf public/index.html && NODE_ENV=production webpack -p && NODE_ENV=production node app.js",
     "start": "npm run production",

@@ -7,7 +7,6 @@ import hogan from 'hogan-express'
 
 // Routes
 import routes from './routes'
-
 const apiRoutes = require('./routes/api.js')
 
 // Express
